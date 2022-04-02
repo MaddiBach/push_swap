@@ -6,7 +6,7 @@
 /*   By: maddi <maddi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:00:48 by maddi             #+#    #+#             */
-/*   Updated: 2022/04/02 16:35:26 by maddi            ###   ########.fr       */
+/*   Updated: 2022/04/02 17:52:00 by maddi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,23 @@ t_stack *ft_get_max_lds(t_stack *tail)
     return (max);
 }
 
+t_stack *ft_get_nearest_lower(t_stack *node)
+{
+    t_stack *tmp = node;
+    
+    node = node->next;
+    while (node != tmp)
+    {
+        if (tmp->val > node->val)
+            return (node);
+        node = node->next;
+    }
+    return (node);
+}
+
 
 int main(int ac, char **av)
-{    
+{
     int i = 2;
     
     t_stack *stack = ft_newlst(ft_atoi(av[1]));
@@ -93,14 +107,20 @@ int main(int ac, char **av)
         ft_addfront(&stack, newnode );       
         i++;
     }
-
     ft_printlst(stack);
     ft_lds(stack);
     puts("---------------");
     ft_printlst(stack);
     t_stack *max = ft_get_max_lds(stack);
     printf("lds = %d val = %d\n", max->lds, max->val);
-    
+    t_stack **lds = malloc(sizeof(t_stack *) * max->lds);
+    i = 0;
+    t_stack *tmp = ft_get_nearest_lower(max);
+    printf("near low = %d\n",  tmp->val); 
+    tmp = ft_get_nearest_lower(tmp);
+    printf("near low = %d\n",  tmp->val);
+    tmp = ft_get_nearest_lower(tmp);
+    printf("near low = %d\n",  tmp->val);
 }
 /*
 int main()

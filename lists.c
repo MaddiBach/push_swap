@@ -6,7 +6,7 @@
 /*   By: maddi <maddi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 11:39:37 by maddi             #+#    #+#             */
-/*   Updated: 2022/04/02 15:24:59 by maddi            ###   ########.fr       */
+/*   Updated: 2022/04/03 16:43:06 by maddi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void    ft_printlst(t_stack *tail)
     current = tail;
     while (current->prev != tail)
     {
-        printf("%d :: %d | pos = %d\n", current->lds, current->val, current->pos);
+        printf("lds = %d :: %d | pos = %d\n", current->lds, current->val, current->pos);
         current = current->prev;
     }
-    printf("%d :: %d | pos = %d\n", current->lds, current->val, current->pos);
+    printf("lds = %d :: %d | pos = %d\n", current->lds, current->val, current->pos);
 }
 
 t_stack *ft_newlst(int value)

@@ -6,7 +6,7 @@
 /*   By: maddi <maddi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 09:12:57 by maddi             #+#    #+#             */
-/*   Updated: 2022/04/02 11:44:26 by maddi            ###   ########.fr       */
+/*   Updated: 2022/04/03 09:02:37 by maddi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ void    ft_rotate(t_stack **tail)
     if ((*tail) == NULL)
         return ;
     (*tail) = (*tail)->prev;
+}
+
+void    ft_rrotate(t_stack **tail)
+{
+    if ((*tail) == NULL)
+        return ;
+    (*tail) = (*tail)->next;
 }
 
 void    ft_push(t_stack *src, t_stack **dst)
